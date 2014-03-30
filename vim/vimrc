@@ -1,11 +1,13 @@
-" ========== Vim Basic Settings ============="
-" Pathogen settings.
+" ========== Load Pathogen ================="
 filetype off
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
+" ========== END Load Pathogen =============="
 
+" ========== Vim Basic Settings ============="
 " Make vim incompatbile to vi.
 set nocompatible
 set modelines=0
@@ -24,10 +26,6 @@ set listchars=tab:▸\ ,eol:¬,trail:⬦,nbsp:⬦
 " Highlight searches
 set hlsearch
 
-" Make tab in v mode ident code
-vnoremap <tab> >gv
-vnoremap <s-tab> <gv
-
 " Set backup dir for swp files.
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
@@ -42,6 +40,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set novisualbell
+set timeout ttimeoutlen=50
 
 set cursorline
 set ttyfast
@@ -57,14 +56,56 @@ set shell=/bin/bash
 set lazyredraw
 set matchtime=3
 
-" Changing Leader Key
-let mapleader = ","
-
 " Set title to window
 set title
 
-" Dictionary path, from which the words are being looked up.
-" set dictionary=/usr/share/dict/words
+" Change status color on different modes
+" First, enable status line always
+set laststatus=2
+
+" Now set it up to change the status line based on mode
+if version >= 700
+  au InsertEnter * hi StatusLine term=reverse ctermfg=7 ctermbg=23 guibg=#005f5f guifg=White gui=underline
+  au InsertLeave * hi StatusLine term=reverse ctermfg=7 ctermbg=8 gui=bold,reverse
+endif
+
+" Make Sure that Vim returns to the same line when we reopen a file"
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
+" Highlight trailing whitespaces
+match Todo /\s\+$/
+
+" Working with split screen nicely
+" Resize Split When the window is resized"
+au VimResized * :wincmd =
+
+" =========== END Basic Vim Settings ===========
+
+" =========== Vim Keybindings ==================
+
+" Changing Leader Key
+let mapleader = ","
+
+" C-q doesn't reach vim, so lets try this:
+silent !stty -ixon > /dev/null 2>/dev/null
+
+" Let Alt key combos to work :
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+" Make tab in v mode ident code
+vnoremap <tab> >gv
+vnoremap <s-tab> <gv
 
 " Ctrl+Space autocomplete
 inoremap <C-Space> <C-p>
@@ -84,10 +125,6 @@ nnoremap <silent> <A-q> :close<CR>
 " Navigation between buffers
 nnoremap <silent> <C-l> :bnext<CR>
 nnoremap <silent> <C-h> :bprevious<CR>
-
-" C-q doesn't reach vim, so lets try this:
-silent !stty -ixon > /dev/null 2>/dev/null
-
 nnoremap <silent> <C-q> :MBEbd<CR>
 
 " Get Rid of stupid Goddamned help keys
@@ -125,46 +162,16 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 inoremap <leader>; <ESC>
 vnoremap <leader>; <ESC>
 
-" Working with split screen nicely
-" Resize Split When the window is resized"
-au VimResized * :wincmd =
-
-" Change status color on different modes
-" First, enable status line always
-set laststatus=2
-
-" Now set it up to change the status line based on mode
-if version >= 700
-  au InsertEnter * hi StatusLine term=reverse ctermfg=7 ctermbg=23 guibg=#005f5f guifg=White gui=underline
-  au InsertLeave * hi StatusLine term=reverse ctermfg=7 ctermbg=8 gui=bold,reverse
-endif
-
-" Make Sure that Vim returns to the same line when we reopen a file"
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
 nnoremap g; g;zz
 
-" Let Alt key combos to work :
-let c='a'
-while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
-  let c = nr2char(1+char2nr(c))
-endw
+" =========== END Vim Keybindings ==============
 
-set timeout ttimeoutlen=50
+" =========== Color theme settings =============
 
-" =========== END Basic Vim Settings ===========
-
-" Color theme settings
 colo lucius
 LuciusDark
+
+" =========== END Color theme settings =========
 
 " =========== Gvim Settings =============
 
