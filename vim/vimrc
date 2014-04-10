@@ -59,6 +59,9 @@ set matchtime=3
 " Set title to window
 set title
 
+" Let lines be around 80 chars long
+"set textwidth=80
+
 " Change status color on different modes
 " First, enable status line always
 set laststatus=2
@@ -170,14 +173,14 @@ nnoremap g; g;zz
 
 colo lucius
 LuciusDark
-
+hi Normal ctermbg=NONE
 " =========== END Color theme settings =========
 
 " =========== Gvim Settings =============
 
 " Removing scrollbars
 if has("gui_running")
-    set guifont=Liberation\ Mono\ 10
+    set guifont=Liberation\ Mono\ 12
     set guitablabel=%-0.12t%M
     set guioptions-=T
     set guioptions-=r
