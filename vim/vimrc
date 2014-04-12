@@ -201,6 +201,21 @@ autocmd bufwritepost .vimrc source ~/.vimrc
 
 " ========== Plugin Settings =========="
 
+" vim mode-switch lag fix (related to autoclose)
+if ! has("gui_running")
+    set ttimeoutlen=10
+
+augroup FastEscape
+    autocmd!
+    au InsertEnter * set timeoutlen=0
+    au InsertLeave * set timeoutlen=1000
+augroup END
+endif
+
+" Mapping to Undotree
+nmap <leader>u <ESC>:UndotreeToggle<CR>
+imap <leader>u <ESC>:UndotreeToggle<CR>
+
 " Mapping to NERDTree
 nnoremap <C-n> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['.sw?','\~$', '\.pyc$']

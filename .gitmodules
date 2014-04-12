@@ -28,3 +28,12 @@
 [submodule "vim/bundle/go.vim"]
 	path = vim/bundle/go.vim
 	url = https://github.com/fsouza/go.vim.git
+[submodule "vim/bundle/vim-autoclose"]
+	path = vim/bundle/vim-autoclose
+	url = https://github.com/spf13/vim-autoclose.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/bundle/undotree"]
+	path = vim/bundle/undotree
+	url = https://github.com/mbbill/undotree.git
