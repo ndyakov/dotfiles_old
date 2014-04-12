@@ -117,6 +117,7 @@ inoremap <C-@> <C-p>
 " Ctrl+S to save
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
+vnoremap <C-s> <ESC>:w<CR>
 
 " Navigation between windows
 nnoremap <silent> <A-k> :wincmd k<CR>
