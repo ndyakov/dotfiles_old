@@ -1,0 +1,2 @@
+execute_on_song_change = "notify-send \" `ncmpcpp --now-playing '{%a - %t}|{%f}'` \" \" now playing...\" -i audio"
+

@@ -2,8 +2,8 @@
 
 # Get the dotfiles directory
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PACKS=('all' 'bash' 'vim' 'tmux' 'irssi')
-ENVS=('kiba' 'moon')
+PACKS=('all' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'ncmpcpp')
+ENVS=('kiba')
 declare -A LINK_FOLDERS
 declare -A LINK_FILES
 
@@ -44,7 +44,19 @@ function print_help() {
     do
         $p $msg
     done
-    $p "\nHELP"
+    $p "Usage: ./do PACK [ENV]"
+    $p "This tool will link the provided dotfiles to your home directory."
+    $p "Example: ./do vim"
+    $p "Currently available PACKS:"
+    for pack in "${PACKS[@]}"
+    do
+        $p "  $pack"
+    done
+    $p "Currently available ENV:"
+    for env in "${ENVS[@]}"
+    do
+        $p "  $env"
+    done
 }
 
 function proccess_pack() {
@@ -61,7 +73,7 @@ function proccess_pack() {
         fi
     else
         local pack=$1
-        $p $pack
+        $p "-- Processing $pack."
         link_pack $pack
         "prep_$pack"
         link_folders $pack
@@ -70,11 +82,23 @@ function proccess_pack() {
 }
 
 function link_pack() {
-    if [ -d "$HOME/.$1" ]
+    if [ $# -eq 0 ]
     then
-        rm -riv "$HOME/.$1"
+        return 1
     fi
-    ln -sv "$DOTFILES/$1/" "$HOME/.$1"
+    local $pack=$1
+
+    if [ -d "$HOME/.$pack" ]
+    then
+        rm -riv "$HOME/.$pack"
+    fi
+
+    if [ ! -d "$HOME/.$pack" ]
+    then
+        ln -sv "$DOTFILES/$pack/" "$HOME/.$pack"
+    else
+        $p "Won't link $DOTFILES/$pack/ to $HOME/.$pack because the directory exists."
+    fi
 }
 
 function link_files() {
@@ -82,14 +106,22 @@ function link_files() {
     then
         return 1
     fi
+
     local $pack=$1
+
     for file in "${!LINK_FILES[@]}"
     do
         if [ -f "$HOME/${LINK_FILES[$file]}" ]
         then
             rm -iv "$HOME/${LINK_FILES[$file]}"
         fi
-        ln -sv "$HOME/.$pack/$file" "$HOME/${LINK_FILES[$file]}"
+
+        if [ ! -f "$HOME/${LINK_FILES[$file]}" ]
+        then
+            ln -sv "$HOME/.$pack/$file" "$HOME/${LINK_FILES[$file]}"
+        else
+            $p "Won't link $HOME/.$pack/$file to $HOME/${LINK_FILES[$file]} because the file exists."
+        fi
     done
 }
 
@@ -100,13 +132,20 @@ function link_folders() {
     fi
 
     local $pack=$1
+
     for folder in "${!LINK_FOLDERS[@]}"
     do
         if [ -d "$HOME/${LINK_FOLDERS[$folder]}" ]
         then
             rm -iv "$HOME/${LINK_FOLDERS[$folder]}"
         fi
-        ln -sv "$HOME/.$pack/$folder" "$HOME/${LINK_FOLDERS[$folder]}"
+
+        if [ ! -d "$HOME/${LINK_FOLDERS[$folder]}" ]
+        then
+            ln -sv "$HOME/.$pack/$folder" "$HOME/${LINK_FOLDERS[$folder]}"
+        else
+            $p "Won't link $HOME/.$pack/$folder to $HOME/${LINK_FOLDERS[$folder]} because the directory exists."
+        fi
     done
 }
 
@@ -131,6 +170,17 @@ function prep_irssi() {
     LINK_FILES=()
     LINK_FOLDERS=()
 }
+
+function prep_htop() {
+    LINK_FILES=(["htoprc.$ENV"]=".config/htop/htoprc")
+    LINK_FOLDERS=()
+}
+
+function prep_ncmpcpp() {
+    LINK_FILES=(["config.$ENV"]=".ncmpcpp/config")
+    LINK_FOLDERS=()
+}
+
 # Check arguments
 if [ $# -eq 0 ]
 then
@@ -151,10 +201,9 @@ then
     ENV=$2
 fi
 
-$p "Using ENV $ENV."
-
-# Install
+# Linking
 PACK=$1
-$p $PACK
+$p "-- Using PACK $PACK."
+$p "-- Using ENV $ENV."
 
 proccess_pack
