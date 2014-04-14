@@ -219,8 +219,8 @@ endif
 
 " Mapping for ag
 " Search the word under the cursor
-nnoremap <leader>f :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-
+nnoremap <leader>f :Ag! "<C-R><C-W>"<CR>:cw<CR>
+vnoremap <leader>f "hy:Ag! <C-R>h<CR>:cw<CR>
 " Mapping to Undotree
 nmap <leader>u <ESC>:UndotreeToggle<CR>
 imap <leader>u <ESC>:UndotreeToggle<CR>
