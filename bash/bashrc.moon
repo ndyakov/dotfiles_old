@@ -104,16 +104,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 function prompt_left() {
-    echo -e "${debian_chroot:+($debian_chroot)}\$(if [[ \$? == 0 ]]; then echo \"\[$BGreen\]\342\234\223\"; else echo \"\[$BRed\]\342\234\227\"; fi) \[$BWhite\]\u@\[$BBlue\]\h\[$BWhite\] : \[$BGreen\]\w \[$BPurple\]$(__git_ps1 " (%s)")"
+    echo -e "${debian_chroot:+($debian_chroot)}\$(if [[ \$? == 0 ]]; then echo \"\[$BGreen\]\342\234\223\"; else echo \"\[$BRed\]\342\234\227\"; fi) \[$BWhite\]\u@\[$BGreen\]\h\[$BWhite\] : \[$BBlue\]\w \[$BPurple\]$(__git_ps1 " (%s)")"
 }
 
 function prompt_right() {
-    echo -e "\[$BWhite\][\[$BGreen\]\D{%k:%M}\[$BWhite\]]"
+    echo -e "\[$BWhite\][\[$BBlue\]\D{%k:%M}\[$BWhite\]]"
 }
 
 function prompt() {
     compensate=37
-    PS1=$(printf "%*s\r%s\n\[$BGreen\]➜ \[$Color_Off\] " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+    PS1=$(printf "%*s\r%s\n\[$BBlue\]➜ \[$Color_Off\] " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
     PS1="$PS1"
 }
 
