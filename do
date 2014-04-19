@@ -3,7 +3,7 @@
 # Get the dotfiles directory
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PACKS=('all' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'ncmpcpp')
-ENVS=('kiba')
+ENVS=('kiba' 'moon')
 declare -A LINK_FOLDERS
 declare -A LINK_FILES
 
@@ -111,16 +111,19 @@ function link_files() {
 
     for file in "${!LINK_FILES[@]}"
     do
-        if [ -f "$HOME/${LINK_FILES[$file]}" ]
+        if [ -f "$HOME/.$pack/$file" ]
         then
-            rm -iv "$HOME/${LINK_FILES[$file]}"
-        fi
+            if [ -f "$HOME/${LINK_FILES[$file]}" ]
+            then
+                rm -iv "$HOME/${LINK_FILES[$file]}"
+            fi
 
-        if [ ! -f "$HOME/${LINK_FILES[$file]}" ]
-        then
-            ln -sv "$HOME/.$pack/$file" "$HOME/${LINK_FILES[$file]}"
-        else
-            $p "Won't link $HOME/.$pack/$file to $HOME/${LINK_FILES[$file]} because the file exists."
+            if [ ! -f "$HOME/${LINK_FILES[$file]}" ]
+            then
+                ln -sv "$HOME/.$pack/$file" "$HOME/${LINK_FILES[$file]}"
+            else
+                $p "Won't link $HOME/.$pack/$file to $HOME/${LINK_FILES[$file]} because the file exists."
+            fi
         fi
     done
 }
@@ -152,6 +155,10 @@ function link_folders() {
 function prep_bash() {
     LINK_FILES=(["bashrc.$ENV"]=".bashrc" ["bash_aliases.$ENV"]=".bash_aliases")
     LINK_FOLDERS=(["bin"]="bin" ["completion"]=".completion")
+    if [ $ENV == 'moon' ]
+    then
+        curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+    fi
 }
 
 function prep_vim() {
