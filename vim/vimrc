@@ -14,9 +14,9 @@ set modelines=0
 
 " Global TAB settings.
 set smartindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Show whitespaces
@@ -204,6 +204,15 @@ autocmd bufwritepost .vimrc source ~/.vimrc
 
 " ========== END Gvim Settings ==========
 
+" ========== Functions ==================
+
+func! NoTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+
+" ========== END Functions ==============
 
 " ========== Plugins Settings =========="
 " vim mode-switch lag fix (related to autoclose)
