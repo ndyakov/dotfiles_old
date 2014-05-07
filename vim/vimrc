@@ -26,7 +26,13 @@ set listchars=tab:▸\ ,eol:¬,trail:⬦,nbsp:⬦
 " Highlight searches
 set hlsearch
 
-" Set backup dir for swp files.
+" Use igrnorecase
+set ignorecase
+
+" Search while typing
+set incsearch
+
+" Set backup dir for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
@@ -82,7 +88,7 @@ augroup line_return
 augroup END
 
 " Highlight trailing whitespaces
-match Todo /\s\+$/
+match Error /\s\+$/
 
 " Working with split screen nicely
 " Resize Split When the window is resized"
@@ -106,6 +112,10 @@ while c <= 'z'
   let c = nr2char(1+char2nr(c))
 endw
 
+" Permanent very magic for searches
+nnoremap / /\v
+vnoremap / /\v
+
 " Make tab in v mode ident code
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
@@ -118,6 +128,10 @@ inoremap <C-@> <C-p>
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
 vnoremap <C-s> <ESC>:w<CR>
+
+" <leader><leader> to toggle between buffers
+nmap <leader><leader> <C-^>
+vmap <leader><leader> <C-^>
 
 " Navigation between windows
 nnoremap <silent> <A-k> :wincmd k<CR>
@@ -141,6 +155,21 @@ vnoremap <F1> <ESC>
 " plugins
 nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
+
+" Better navigation between results with f<char>
+nnoremap [a ,
+nnoremap ]a ;
+
+vnoremap [a ,
+vnoremap ]a ;
+
+" Better navigation in jumplist
+
+nnoremap [w <C-o>
+nnoremap ]w <C-i>
+
+vnoremap [w <C-o>
+vnoremap ]w <C-i>
 
 " Map : to ; also in command mode.
 nnoremap ; :
@@ -168,8 +197,7 @@ nnoremap <leader>v V`]
 " ,ev Shortcut to edit .vimrc file on the fly on a vertical window.
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-" ,;  For Qicker Escaping between normal and editing mode.
-inoremap <leader>; <ESC>
+" ,;  For Qicker Escaping between normal and visual mode.
 vnoremap <leader>; <ESC>
 
 nnoremap g; g;zz
@@ -181,6 +209,7 @@ nnoremap g; g;zz
 colo lucius
 LuciusDark
 hi Normal ctermbg=NONE
+
 " =========== END Color theme settings =========
 
 " =========== Gvim Settings =============
@@ -228,8 +257,8 @@ endif
 
 " Mapping for ag
 " Search the word under the cursor
-nnoremap <leader>f :Ag! "<C-R><C-W>"<CR>:cw<CR>
-vnoremap <leader>f "hy:Ag! <C-R>h<CR>:cw<CR>
+nnoremap <leader>f mM:Ag! "<C-R><C-W>"<CR>:cw<CR>
+vnoremap <leader>f mM"hy:Ag! <C-R>h<CR>:cw<CR>
 " Mapping to Undotree
 nmap <leader>u <ESC>:UndotreeToggle<CR>
 imap <leader>u <ESC>:UndotreeToggle<CR>
