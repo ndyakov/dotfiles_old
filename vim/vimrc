@@ -112,10 +112,6 @@ while c <= 'z'
   let c = nr2char(1+char2nr(c))
 endw
 
-" Permanent very magic for searches
-nnoremap / /\v
-vnoremap / /\v
-
 " Make tab in v mode ident code
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv

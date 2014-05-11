@@ -2,7 +2,7 @@
 
 # Get the dotfiles directory
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PACKS=('all' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'ncmpcpp')
+PACKS=('all' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'ncmpcpp' 'xfce4')
 ENVS=('kiba' 'moon')
 declare -A LINK_FOLDERS
 declare -A LINK_FILES
@@ -140,7 +140,7 @@ function link_folders() {
     do
         if [ -d "$HOME/${LINK_FOLDERS[$folder]}" ]
         then
-            rm -iv "$HOME/${LINK_FOLDERS[$folder]}"
+            rm -irv "$HOME/${LINK_FOLDERS[$folder]}"
         fi
 
         if [ ! -d "$HOME/${LINK_FOLDERS[$folder]}" ]
@@ -186,6 +186,11 @@ function prep_htop() {
 function prep_ncmpcpp() {
     LINK_FILES=(["config.$ENV"]=".ncmpcpp/config")
     LINK_FOLDERS=()
+}
+
+function prep_xfce4() {
+    LINK_FILES=()
+    LINK_FOLDERS=(["terminal"]=".config/xfce4/terminal")
 }
 
 # Check arguments
