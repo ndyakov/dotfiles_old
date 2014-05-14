@@ -1,0 +1,15 @@
+[user]
+	email = me@ndyakov.eu
+	name = Nedyalko Dyakov
+[color]
+	ui = true
+[push]
+	default = simple
+[credential]
+	helper = cache
+[core]
+	pager = less -r
+[branch]
+	autosetuprebase = always
+[merge]
+	tool = vimdiff
