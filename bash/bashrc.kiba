@@ -1,11 +1,10 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc) # for examples
 
 #figlet -w $(stty size | cut -d" " -f2) -c " -- ( " $(hostname) " ) -- "
 
 # If not running interactively, don't do anything
+
 case $- in
     *i*) ;;
       *) return;;
@@ -108,12 +107,12 @@ function prompt_left() {
 }
 
 function prompt_right() {
-    echo -e "\[$BWhite\][\[$BBlue\]\D{%k:%M}\[$BWhite\]]"
+   echo -e "\[$White\][\[$White\]\D{%k:%M}\[$White\]]"
 }
 
 function prompt() {
-    compensate=37
-    PS1=$(printf "%*s\r%s\n\[$BBlue\]➜ \[$Color_Off\] " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+    compensate=1
+    PS1=$(printf "%*s\r%s\n\[$BBlue\]➜ \[$Color_Off\] " "$(($(tput cols)+${compensate}))" "$(prompt_left)")
     PS1="$PS1"
 }
 
