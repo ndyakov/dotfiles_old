@@ -26,8 +26,8 @@ set listchars=tab:▸\ ,eol:¬,trail:⬦,nbsp:⬦
 " Highlight searches
 set hlsearch
 
-" Use igrnorecase
-set ignorecase
+" Use smartcase
+set smartcase
 
 " Search while typing
 set incsearch
@@ -146,6 +146,10 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" Toggle highlight search
+let hlstate=0
+nnoremap <Leader>n :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<CR>:echo "toggled visibility for hlsearch"<CR>
+inoremap <Leader>n <ESC>:if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<CR>:echo "toggled visibility for hlsearch"<CR>a
 
 " Better navigation between results with vimgrep and similar
 " plugins
@@ -231,7 +235,7 @@ autocmd bufwritepost .vimrc source ~/.vimrc
 
 " ========== Functions ==================
 
-func! NoTrailingWS()
+func! ClearTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
   exe "normal `z"

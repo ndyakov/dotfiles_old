@@ -40,7 +40,7 @@ BWhite='\e[1;37m'       # White
 
 
 # Less colors and stuff
-export GREP_OPTIONS="--color=always"
+#export GREP_OPTIONS="--color=always"
 export LESS=' -R '
 
 # Less Colors for Man Pages
@@ -193,7 +193,7 @@ export PAGER="less"
 
 # --- Ruby stuff ---
 export PATH=$PATH:/home/ndyakov/src/ruby/rbenv/bin
-export PATH="/home/ndyakov/.rbenv/shims:${PATH}"
+export PATH=/home/ndyakov/.rbenv/shims:$PATH
 export RBENV_SHELL=bash
 source '/home/ndyakov/src/ruby/rbenv/libexec/../completions/rbenv.bash'
 rbenv rehash 2>/dev/null
