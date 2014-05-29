@@ -43,3 +43,6 @@
 [submodule "vim/bundle/jshint2.vim"]
 	path = vim/bundle/jshint2.vim
 	url = https://github.com/Shutnik/jshint2.vim.git
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
