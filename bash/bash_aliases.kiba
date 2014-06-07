@@ -69,3 +69,5 @@ alias t="hnb"
 alias m="tmux"
 alias ma="tmux attach"
 alias term='xfce4-terminal'
+
+alias be="bundle exec"

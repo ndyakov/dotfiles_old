@@ -14,6 +14,6 @@
 [merge]
 	tool = vimdiff
 [alias]
-  co = checkout
-  br = branch
-  last = log -p -1 HEAD
+	co = checkout
+	br = branch
+	last = log -p -1 HEAD

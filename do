@@ -2,7 +2,7 @@
 
 # Get the dotfiles directory
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PACKS=('all' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'ncmpcpp' 'xfce4' 'git')
+PACKS=('all' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'ncmpcpp' 'xfce4' 'gitconf')
 ENVS=('kiba' 'moon')
 declare -A LINK_FOLDERS
 declare -A LINK_FILES
@@ -69,7 +69,7 @@ function proccess_pack() {
             proccess_pack 'tmux'
             proccess_pack 'irssi'
             proccess_pack 'htop'
-            proccess_pack 'git'
+            proccess_pack 'gitconf'
         else
             proccess_pack $PACK
         fi
@@ -195,7 +195,7 @@ function prep_xfce4() {
     LINK_FOLDERS=(["terminal"]=".config/xfce4/terminal")
 }
 
-function prep_git() {
+function prep_gitconf() {
     LINK_FILES=(["gitconfig"]=".gitconfig")
     LINK_FOLDERS=()
 }
