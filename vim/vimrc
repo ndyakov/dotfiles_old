@@ -68,6 +68,9 @@ set title
 " Let lines be around 80 chars long
 "set textwidth=80
 
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+
 " Change status color on different modes
 " First, enable status line always
 set laststatus=2
@@ -139,13 +142,17 @@ nnoremap <silent> <A-q> :close<CR>
 " Navigation between buffers
 nnoremap <silent> <C-l> :bnext<CR>
 nnoremap <silent> <C-h> :bprevious<CR>
-nnoremap <silent> <C-q> :MBEbd<CR>
+nnoremap <silent> <C-q> :bdelete<CR>
 
 " Get Rid of stupid Goddamned help keys
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+
+"open new tab
+nnoremap <leader>t :tabnew %<CR>
+vnoremap <leader>t :tabnew %<CR>
 " Toggle highlight search
 let hlstate=0
 nnoremap <Leader>n :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<CR>:echo "toggled visibility for hlsearch"<CR>
@@ -170,6 +177,13 @@ nnoremap ]w <C-i>
 
 vnoremap [w <C-o>
 vnoremap ]w <C-i>
+
+" Navigation in between tabs
+nnoremap [t :tabprevious<cr>
+nnoremap ]t :tabnext<cr>
+
+vnoremap [t :tabprevious<cr>
+vnoremap ]t :tabnext<cr>
 
 " Map : to ; also in command mode.
 nnoremap ; :
