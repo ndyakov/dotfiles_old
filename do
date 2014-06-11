@@ -157,10 +157,7 @@ function link_folders() {
 function prep_bash() {
     LINK_FILES=(["bashrc.$ENV"]=".bashrc" ["bash_aliases.$ENV"]=".bash_aliases")
     LINK_FOLDERS=(["bin"]="bin" ["completion"]=".completion")
-    if [ $ENV == 'moon' ]
-    then
-        curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
-    fi
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
 }
 
 function prep_vim() {
