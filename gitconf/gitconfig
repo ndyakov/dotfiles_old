@@ -17,3 +17,6 @@
 	co = checkout
 	br = branch
 	last = log -p -1 HEAD
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	aa = add --all
+	fn = diff --name-status

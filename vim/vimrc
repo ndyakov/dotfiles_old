@@ -68,7 +68,7 @@ set title
 " Let lines be around 80 chars long
 "set textwidth=80
 
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %y\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %L
 
 
 " Change status color on different modes
