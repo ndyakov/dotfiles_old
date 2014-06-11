@@ -159,7 +159,7 @@ function prep_bash() {
     LINK_FOLDERS=(["bin"]="bin" ["completion"]=".completion")
     if [ $ENV == 'moon' ]
     then
-        curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+        curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
     fi
 }
 
