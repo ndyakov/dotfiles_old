@@ -30,3 +30,5 @@ ScrollingLines=5000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoMnemonics=TRUE
+BackgroundDarkness=0.950000
+

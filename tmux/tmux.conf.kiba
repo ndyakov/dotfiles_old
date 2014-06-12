@@ -7,7 +7,6 @@ set -s escape-time 50
 # Change to Screen's ctrl-a escape sequence
 source /usr/share/doc/tmux/examples/screen-keys.conf
 # On Archlinux, this file is not under the same directory
-source /usr/share/tmux/screen-keys.conf
 
 set-option -g set-titles on
 set-option -g set-titles-string '#(whoami)@#H - (#S)'

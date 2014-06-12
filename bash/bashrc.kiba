@@ -32,7 +32,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
 # Env Variables
 export GOPATH=$HOME/code/go
 export GOROOT=$HOME/src/go

@@ -1,4 +1,5 @@
 " ========== Load Pathogen ================="
+
 filetype off
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -122,6 +123,7 @@ vnoremap <s-tab> <gv
 " Ctrl+Space autocomplete
 inoremap <C-Space> <C-p>
 inoremap <C-@> <C-p>
+inoremap <Nul> <C-p>
 
 " Ctrl+S to save
 nnoremap <C-s> :w<CR>
@@ -223,6 +225,7 @@ nnoremap g; g;zz
 colo lucius
 LuciusDark
 hi Normal ctermbg=NONE
+
 
 " =========== END Color theme settings =========
 
