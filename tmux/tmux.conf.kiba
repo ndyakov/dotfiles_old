@@ -46,7 +46,10 @@ set-window-option -g window-status-activity-fg $LIGHT
 set-window-option -g window-status-activity-attr bold
 set-window-option -g automatic-rename off
 set-window-option -g aggressive-resize on
-set-window-option -g monitor-activity on
+
+# Set window notifications
+setw -g monitor-activity on
+set -g visual-activity on
 
 ## Cannot use:
 ##  - screen-bce, screen-256color-bce: tmux does not support bce

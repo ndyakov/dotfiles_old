@@ -49,6 +49,7 @@ set novisualbell
 set timeout ttimeoutlen=50
 
 set cursorline
+set cursorcolumn
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -329,10 +330,12 @@ let g:git_diff_removed_symbol='⇐'
 let g:git_diff_changed_symbol='⇔'
 
 " IndentGuides setup
-
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_indent_levels=6
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_enable_on_vim_startup=0
+
+" GolderRatio settings
+let g:golden_ratio_exclude_nonmodifiable = 1
 
 " =========== END Plugin Settings =========="
