@@ -49,7 +49,6 @@ set novisualbell
 set timeout ttimeoutlen=50
 
 set cursorline
-set cursorcolumn
 set ttyfast
 set ruler
 set backspace=indent,eol,start
@@ -338,4 +337,4 @@ let g:indent_guides_enable_on_vim_startup=0
 " GolderRatio settings
 let g:golden_ratio_exclude_nonmodifiable = 1
 
-" =========== END Plugin Settings =========="
+"========== END Plugin Settings =========="
