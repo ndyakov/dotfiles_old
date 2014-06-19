@@ -30,5 +30,10 @@ ScrollingLines=5000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoMnemonics=TRUE
-BackgroundDarkness=0.950000
+DropdownPosition=45
+DropdownWidth=100
+DropdownHeight=70
+DropdownKeepOpenDefault=TRUE
+DropdownKeepAbove=FALSE
+DropdownAlwaysShowTabs=FALSE
 

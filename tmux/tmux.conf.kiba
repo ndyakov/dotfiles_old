@@ -30,6 +30,7 @@ set-option -g mode-keys vi
 set-option -g mode-bg $DARK
 set-option -g mode-fg $LIGHT
 
+bind ^Q last-pane
 # Windows
 set-window-option -g window-status-attr default
 set-window-option -g window-status-bg $DARK
