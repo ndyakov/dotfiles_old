@@ -31,11 +31,13 @@ set hlsearch
 set smartcase
 
 " Search while typing
+
 set incsearch
 
 " Set backup dir for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+
 
 " More Common Settings.
 set encoding=utf-8
@@ -66,10 +68,16 @@ set matchtime=3
 " Set title to window
 set title
 
+
 " Let lines be around 80 chars long
 "set textwidth=80
 
-set statusline=%<%f\ %y\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %L
+"set statusline=%<%f\ %y\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %L
+
+if has("statusline")
+   set statusline=%-50{buftabs#statusline()}%=\ %h%m%r%k\ %y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
+endif
+
 
 
 " Change status color on different modes
@@ -146,6 +154,13 @@ nnoremap <silent> <C-l> :bnext<CR>
 nnoremap <silent> <C-h> :bprevious<CR>
 nnoremap <silent> <C-q> :bdelete<CR>
 
+nnoremap <silent> gt1 :buffer 1<CR>
+nnoremap <silent> gt2 :buffer 2<CR>
+nnoremap <silent> gt3 :buffer 3<CR>
+nnoremap <silent> gt4 :buffer 4<CR>
+nnoremap <silent> gt5 :buffer 5<CR>
+nnoremap <silent> gt6 :buffer 6<CR>
+
 " Get Rid of stupid Goddamned help keys
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
@@ -153,8 +168,8 @@ vnoremap <F1> <ESC>
 
 
 "open new tab
-nnoremap <leader>t :tabnew %<CR>
-vnoremap <leader>t :tabnew %<CR>
+nnoremap gtt :tabnew %<CR>
+vnoremap gtt :tabnew %<CR>
 " Toggle highlight search
 let hlstate=0
 nnoremap <Leader>n :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<CR>:echo "toggled visibility for hlsearch"<CR>
@@ -317,10 +332,19 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+
 " CtrlP key binding.
 nnoremap <C-o> :CtrlP<CR>
 inoremap <C-o> <ESC>:CtrlP<CR>
 vnoremap <C-o> <ESC>:CtrlP<CR>
+
+nnoremap <C-b> :CtrlPBuffer<CR>
+inoremap <C-b> <ESC>:CtrlPBuffer<CR>
+vnoremap <C-b> <ESC>:CtrlPBuffer<CR>
+
+nnoremap <C-p> :CtrlPBufTagAll<CR>
+inoremap <C-p> <ESC>:CtrlPBufTagAll<CR>
+vnoremap <C-p> <ESC>:CtrlPBufTagAll<CR>
 
 " Symbol for lines which have been added, default: +
 let g:git_diff_added_symbol='⇒'
@@ -340,4 +364,11 @@ let g:indent_guides_enable_on_vim_startup=0
 " GolderRatio settings
 let g:golden_ratio_exclude_nonmodifiable = 1
 
+" Buftabs settings
+let g:buftabs_in_statusline=1
+let g:buftabs_only_basename=1
+let g:buftabs_separator = " "
+let g:buftabs_marker_start = "["
+let g:buftabs_marker_end = "]"
+let g:buftabs_marker_modified = "*"
 "========== END Plugin Settings =========="
