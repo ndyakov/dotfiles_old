@@ -1,0 +1,63 @@
+#!/bin/bash
+#
+# Functions for changing font-size in
+# xfce4-terminal
+function fontsize {
+  if [ $1 ]; then
+    change_fontsize $1
+    exit
+  fi
+  echo `grep 'FontName' ~/.config/xfce4/terminal/terminalrc | rev | cut -d ' ' -f 1 | rev`
+}
+
+function change_fontsize {
+  NEWSIZE=$1
+  SIZE=`fontsize`
+  SUBSTITUTION='s/FontName\(.*\)'$SIZE'/FontName\1'$NEWSIZE'/g'
+  sed -i "$SUBSTITUTION" ~/.config/xfce4/terminal/terminalrc
+}
+
+function zoom {
+  if [ "$1" == "restore" ] || [ "$1" == "r" ]; then
+    $1
+    exit
+  fi
+  STEP=$1
+  SIZE=`fontsize`
+  NEWSIZE=$((SIZE + STEP))
+  change_fontsize $NEWSIZE
+}
+
+function zoomin {
+  zoom +2
+}
+
+function zoomout {
+  zoom -2
+}
+
+function restore {
+  change_fontsize 12
+}
+
+function fs {
+  fontsize $1
+}
+
+function z {
+  zoom $1
+}
+
+function zo {
+  zoomout
+}
+
+function zi {
+  zoomin
+}
+
+function r {
+  restore
+}
+
+$1 $2

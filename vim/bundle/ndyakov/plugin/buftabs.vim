@@ -252,7 +252,7 @@ function! Buftabs_show(deleted_buf)
 				let s:list = s:list . ' '
 			endif
 
-			"let s:list = s:list . l:i . l:buftabs_separator
+			let s:list = s:list . l:i . l:buftabs_separator
 			let s:list = s:list . l:name
 
 			if getbufvar(l:i, "&modified") == 1

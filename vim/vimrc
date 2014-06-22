@@ -1,4 +1,5 @@
 " ========== Load Pathogen ================="
+"
 
 filetype off
 
@@ -73,9 +74,9 @@ set title
 "set textwidth=80
 
 "set statusline=%<%f\ %y\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %L
-
+"set statusline=%-50{buftabs#statusline()}%=\ %h%m%r%k\ %y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
 if has("statusline")
-   set statusline=%-50{buftabs#statusline()}%=\ %h%m%r%k\ %y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
+   set statusline=%f\ %=\ %h%m%r%k\ %y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
 endif
 
 
@@ -233,11 +234,14 @@ vnoremap <leader>; <ESC>
 
 nnoremap g; g;zz
 
+" Show Buftabs when needed
+nnoremap gb :call Buftabs_show(-1)<CR>
+
 " =========== END Vim Keybindings ==============
 
 " =========== Color theme settings =============
 
-colo lucius
+colorscheme lucius
 LuciusDark
 hi Normal ctermbg=NONE
 
@@ -334,17 +338,17 @@ let g:tagbar_type_go = {
 
 
 " CtrlP key binding.
-nnoremap <C-o> :CtrlP<CR>
-inoremap <C-o> <ESC>:CtrlP<CR>
-vnoremap <C-o> <ESC>:CtrlP<CR>
+nnoremap <C-p> :CtrlPBufTagAll<CR>
+inoremap <C-p> <ESC>:CtrlPBufTagAll<CR>
+vnoremap <C-p> <ESC>:CtrlPBufTagAll<CR>
 
 nnoremap <C-b> :CtrlPBuffer<CR>
 inoremap <C-b> <ESC>:CtrlPBuffer<CR>
 vnoremap <C-b> <ESC>:CtrlPBuffer<CR>
 
-nnoremap <C-p> :CtrlPBufTagAll<CR>
-inoremap <C-p> <ESC>:CtrlPBufTagAll<CR>
-vnoremap <C-p> <ESC>:CtrlPBufTagAll<CR>
+nnoremap <C-o> :CtrlP<CR>
+inoremap <C-o> <ESC>:CtrlP<CR>
+vnoremap <C-o> <ESC>:CtrlP<CR>
 
 " Symbol for lines which have been added, default: +
 let g:git_diff_added_symbol='⇒'
@@ -356,19 +360,19 @@ let g:git_diff_removed_symbol='⇐'
 let g:git_diff_changed_symbol='⇔'
 
 " IndentGuides setup
+let g:indent_guides_enable_on_vim_startup=0
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 let g:indent_guides_indent_levels=6
-let g:indent_guides_enable_on_vim_startup=0
 
 " GolderRatio settings
 let g:golden_ratio_exclude_nonmodifiable = 1
 
 " Buftabs settings
-let g:buftabs_in_statusline=1
+"let g:buftabs_in_statusline=0
 let g:buftabs_only_basename=1
 let g:buftabs_separator = " "
-let g:buftabs_marker_start = "["
-let g:buftabs_marker_end = "]"
+"let g:buftabs_marker_start = "["
+"let g:buftabs_marker_end = "]"
 let g:buftabs_marker_modified = "*"
 "========== END Plugin Settings =========="
