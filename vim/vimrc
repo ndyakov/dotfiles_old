@@ -189,7 +189,6 @@ vnoremap [a ,
 vnoremap ]a ;
 
 " Better navigation in jumplist
-
 nnoremap [w <C-o>
 nnoremap ]w <C-i>
 
@@ -202,6 +201,14 @@ nnoremap ]t :tabnext<cr>
 
 vnoremap [t :tabprevious<cr>
 vnoremap ]t :tabnext<cr>
+
+" Zoom in and out (change font size)
+" This one uses the script t located in ~/bin
+nnoremap <silent> [f :r !t zo<CR>
+nnoremap <silent> ]f :r !t zi<CR>
+
+vnoremap <silent> [f :r !t zo<CR>
+vnoremap <silent> ]f :r !t zi<CR>
 
 " Map : to ; also in command mode.
 nnoremap ; :
