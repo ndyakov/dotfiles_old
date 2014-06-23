@@ -60,4 +60,16 @@ function r {
   restore
 }
 
+function + {
+  zoomin
+}
+
+function - {
+  zoomout
+}
+
+function = {
+  restore
+}
+
 $1 $2
