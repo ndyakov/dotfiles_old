@@ -1,6 +1,7 @@
 " ========== Load Pathogen ================="
 "
 
+set re=1
 filetype off
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
