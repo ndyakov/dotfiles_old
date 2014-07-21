@@ -253,6 +253,8 @@ colorscheme lucius
 LuciusDark
 hi Normal ctermbg=NONE
 
+" rm1234
+match TabLineFill /rm\d\+/
 
 " =========== END Color theme settings =========
 
@@ -375,6 +377,7 @@ let g:indent_guides_indent_levels=6
 
 " GolderRatio settings
 let g:golden_ratio_exclude_nonmodifiable = 1
+let g:golden_ratio_autocommand = 0
 
 " Buftabs settings
 "let g:buftabs_in_statusline=0
