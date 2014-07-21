@@ -1,7 +1,5 @@
 " ========== Load Pathogen ================="
 "
-
-set re=1
 filetype off
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -130,7 +128,8 @@ endw
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-" Ctrl+Space autocomplete
+" Ctrl+Space to autocomplete by default
+" omnicompletion is used in go
 inoremap <C-Space> <C-p>
 inoremap <C-@> <C-p>
 inoremap <Nul> <C-p>
@@ -211,8 +210,9 @@ nnoremap <silent> ]f :r !t zi<CR>
 vnoremap <silent> [f :r !t zo<CR>
 vnoremap <silent> ]f :r !t zi<CR>
 
-" Map : to ; also in command mode.
+" Map ; to : in normal and visual mode.
 nnoremap ; :
+vnoremap ; :
 
 " Set vim to save the file on focus out.
 " au FocusLost * :wa
@@ -383,4 +383,11 @@ let g:buftabs_separator = " "
 "let g:buftabs_marker_start = "["
 "let g:buftabs_marker_end = "]"
 let g:buftabs_marker_modified = "*"
+
+" Omnicompletion close scratch window
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "========== END Plugin Settings =========="

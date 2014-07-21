@@ -49,3 +49,6 @@
 [submodule "vim/bundle/golden-ratio"]
 	path = vim/bundle/golden-ratio
 	url = https://github.com/roman/golden-ratio.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
