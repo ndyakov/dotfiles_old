@@ -128,11 +128,12 @@ endw
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
-" Ctrl+Space to autocomplete by default
-" omnicompletion is used in go
-inoremap <C-Space> <C-p>
-inoremap <C-@> <C-p>
-inoremap <Nul> <C-p>
+" Ctrl+Space
+" to accept the autocompletion and exit
+" insert mode.
+inoremap <C-Space> <C-y><ESC>
+inoremap <C-@> <C-y><ESC>
+inoremap <Nul> <C-y><ESC>
 
 " Ctrl+S to save
 nnoremap <C-s> :w<CR>
@@ -387,6 +388,9 @@ let g:buftabs_separator = " "
 "let g:buftabs_marker_end = "]"
 let g:buftabs_marker_modified = "*"
 
+" SuperTab setting
+" uses omni if enabled
+let g:SuperTabDefaultCompletionType = "context"
 " Omnicompletion close scratch window
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
