@@ -2,6 +2,7 @@
 "
 filetype off
 
+set re=1
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -154,7 +155,7 @@ nnoremap <silent> <A-q> :close<CR>
 " Navigation between buffers
 nnoremap <silent> <C-l> :bnext<CR>
 nnoremap <silent> <C-h> :bprevious<CR>
-nnoremap <silent> <C-q> :bdelete<CR>
+nnoremap <silent> <C-q> :Bdelete<CR>
 
 nnoremap <silent> gt1 :buffer 1<CR>
 nnoremap <silent> gt2 :buffer 2<CR>
