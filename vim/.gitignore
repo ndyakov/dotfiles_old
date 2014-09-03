@@ -1,4 +1,2 @@
-backup/*.swp
-backup/*.swo
-backup/*.swn
+backup/*.*
 .netrwhist
