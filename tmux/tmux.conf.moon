@@ -14,7 +14,7 @@ set -s escape-time 50
 
 # Shortcuts for callisto
 unbind C-b
-set -g prefix ^S
+set -g prefix ^W
 bind s send-prefix
 
 # reload configuration with r
