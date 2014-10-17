@@ -41,6 +41,8 @@ alias suspend="sudo pm-suspend-hybrid"
 alias hibernate="sudo pm-hibernate"
 alias nap="suspend"
 
+# fuck this caps lock
+alias ftcl='setxkbmap -option caps:swapescape'
 # be nice tmux, be nice.
 alias tmux="tmux -2"
 
