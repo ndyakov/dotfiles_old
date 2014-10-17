@@ -11,8 +11,8 @@ function prompt_right() {
 }
 
 function prompt() {
-    compensate=37
-    PS1=$(printf "%*s\r%s\n\[$BBlue\]➜ \[$Color_Off\] " "$(($(tput cols)+${compensate}))" "$(prompt_right)" "$(prompt_left)")
+    compensate=1
+    PS1=$(printf "%s\n\[$BBlue\]➜ \[$Color_Off\]" "$(prompt_left)")
     PS1="$PS1"
 }
 

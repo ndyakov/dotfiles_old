@@ -1,6 +1,6 @@
 # Colors
-DARK=black
-LIGHT=white
+BACKGROUND=black
+FOREGROUND=white
 
 # set longer escape time
 set -s escape-time 50
@@ -40,40 +40,40 @@ set -g set-titles-string '#(whoami)@#H - (#S:#W.#P)'
 
 # Panes
 set -g pane-active-border-bg default
-set -g pane-active-border-fg $LIGHT
-set -g pane-border-fg $DARK
+set -g pane-active-border-fg $FOREGROUND
+set -g pane-border-fg $BACKGROUND
 
 # pane numbers display time and color
 set -g display-panes-time 1000
-set -g display-panes-colour $LIGHT
-set -g display-panes-active-colour $DARK
+set -g display-panes-colour $FOREGROUND
+set -g display-panes-active-colour $BACKGROUND
 
 # History
 set -g history-limit 10000
 
 # Clock
-set -g clock-mode-colour $LIGHT
+set -g clock-mode-colour $FOREGROUND
 set -g clock-mode-style 24
 
 # Mode
 set-option -g mode-keys vi
-set-option -g mode-bg $DARK
-set-option -g mode-fg $LIGHT
+set-option -g mode-bg $BACKGROUND
+set-option -g mode-fg $FOREGROUND
 
 # Windows
 
 # set colors
 setw -g window-status-attr dim
-setw -g window-status-bg $DARK
-setw -g window-status-fg $LIGHT
+setw -g window-status-bg $BACKGROUND
+setw -g window-status-fg $FOREGROUND
 setw -g window-status-current-attr reverse
-setw -g window-status-current-bg $DARK
-setw -g window-status-current-fg $LIGHT
-#set-window-option -g window-status-alert-bg $DARK
-#set-window-option -g window-status-alert-fg $LIGHT
+setw -g window-status-current-bg $BACKGROUND
+setw -g window-status-current-fg $FOREGROUND
+#set-window-option -g window-status-alert-bg $BACKGROUND
+#set-window-option -g window-status-alert-fg $FOREGROUND
 #set-window-option -g window-status-alert-attr bold
-setw -g window-status-activity-bg $DARK
-setw -g window-status-activity-fg $LIGHT
+setw -g window-status-activity-bg $BACKGROUND
+setw -g window-status-activity-fg $FOREGROUND
 setw -g window-status-activity-attr bold
 setw -g automatic-rename off
 setw -g aggressive-resize on
@@ -103,8 +103,8 @@ setw -g pane-base-index 1
 set -g status-position top
 
 # set status colors
-set -g status-bg $DARK
-set -g status-fg $LIGHT
+set -g status-bg $BACKGROUND
+set -g status-fg $FOREGROUND
 
 # set status interval
 set -g status-interval 20
@@ -118,6 +118,6 @@ set -g status-right '[#S:#I.#P] [%I:%M %p]'
 
 # Message
 # set message colors
-set -g message-bg $DARK
-set -g message-fg $LIGHT
+set -g message-bg $BACKGROUND
+set -g message-fg $FOREGROUND
 set -g message-attr bright
