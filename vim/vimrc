@@ -32,17 +32,15 @@ set hlsearch
 set smartcase
 
 " Search while typing
-
 set incsearch
 
 " Set backup dir for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
 
-
 " More Common Settings.
 set encoding=utf-8
-set scrolloff=5
+set scrolloff=10
 set autoindent
 set showmode
 set showcmd
@@ -66,9 +64,13 @@ set shell=/bin/bash
 set lazyredraw
 set matchtime=3
 
+" Set tag file
+set tags=./tags,tags
+let g:easytags_dynamic_files=1
+let g:easytags_async=1
+let g:easytags_auto_highlight=0
 " Set title to window
 set title
-
 
 " Let lines be around 80 chars long
 "set textwidth=80
@@ -99,9 +101,6 @@ augroup line_return
         \ execute 'normal! g`"zvzz' |
         \ endif
 augroup END
-
-" Highlight trailing whitespaces
-match Error /\s\+$/
 
 " Working with split screen nicely
 " Resize Split When the window is resized"
@@ -163,13 +162,30 @@ nnoremap <silent> gt3 :buffer 3<CR>
 nnoremap <silent> gt4 :buffer 4<CR>
 nnoremap <silent> gt5 :buffer 5<CR>
 nnoremap <silent> gt6 :buffer 6<CR>
+nnoremap <silent> gt7 :buffer 7<CR>
+nnoremap <silent> gt8 :buffer 8<CR>
+nnoremap <silent> gt9 :buffer 9<CR>
 
 " Get Rid of stupid Goddamned help keys
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" Make arrows useless
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
 
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
 "open new tab
 nnoremap gtt :tabnew %<CR>
 vnoremap gtt :tabnew %<CR>
@@ -258,6 +274,8 @@ hi Normal ctermbg=NONE
 " rm1234
 match TabLineFill /rm\d\+/
 
+" Highlight trailing whitespaces
+match Error /\s\+$/
 " =========== END Color theme settings =========
 
 " =========== Gvim Settings =============
@@ -361,6 +379,11 @@ vnoremap <C-b> <ESC>:CtrlPBuffer<CR>
 nnoremap <C-o> :CtrlP<CR>
 inoremap <C-o> <ESC>:CtrlP<CR>
 vnoremap <C-o> <ESC>:CtrlP<CR>
+
+nnoremap <C-t> :CtrlPTag<CR>
+inoremap <C-t> <ESC>:CtrlPTag<CR>
+vnoremap <C-t> <ESC>:CtrlPTag<CR>
+
 
 " Symbol for lines which have been added, default: +
 let g:git_diff_added_symbol='⇒'
