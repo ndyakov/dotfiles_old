@@ -20,3 +20,5 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	aa = add --all
 	fn = diff --name-status
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+
