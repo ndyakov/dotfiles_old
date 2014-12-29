@@ -70,7 +70,7 @@ let g:easytags_dynamic_files=1
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
 " Set title to window
-set title
+set notitle
 
 " Let lines be around 80 chars long
 "set textwidth=80
@@ -330,7 +330,7 @@ nmap <leader>u <ESC>:UndotreeToggle<CR>
 imap <leader>u <ESC>:UndotreeToggle<CR>
 
 " Mapping to NERDTree
-nnoremap <C-n> :NERDTreeToggle<cr>
+nnoremap <C-n> :NERDTreeToggle %<cr>
 let NERDTreeIgnore=['.sw?','\~$', '\.pyc$']
 
 " Tagbar key bindings."
