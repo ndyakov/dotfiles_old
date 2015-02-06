@@ -70,7 +70,7 @@ let g:easytags_dynamic_files=1
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
 " Set title to window
-set title
+set notitle
 
 " Let lines be around 80 chars long
 "set textwidth=80
@@ -268,8 +268,8 @@ nnoremap gb :call Buftabs_show(-1)<CR>
 " =========== Color theme settings =============
 
 colorscheme lucius
-LuciusDark
-hi Normal ctermbg=NONE
+LuciusDarkHighContrast
+"hi Normal ctermbg=NONE
 
 " rm1234
 match TabLineFill /rm\d\+/
@@ -307,6 +307,10 @@ func! ClearTrailingWS()
   exe "normal `z"
 endfunc
 
+func! ShowTrailingWS()
+  match Error /\s\+$/
+endfunc
+
 " ========== END Functions ==============
 
 " ========== Plugins Settings =========="
@@ -330,7 +334,7 @@ nmap <leader>u <ESC>:UndotreeToggle<CR>
 imap <leader>u <ESC>:UndotreeToggle<CR>
 
 " Mapping to NERDTree
-nnoremap <C-n> :NERDTreeToggle<cr>
+nnoremap <C-n> :NERDTreeToggle %<cr>
 let NERDTreeIgnore=['.sw?','\~$', '\.pyc$']
 
 " Tagbar key bindings."
