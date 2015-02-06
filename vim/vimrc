@@ -2,7 +2,7 @@
 "
 filetype off
 
-set re=1
+"set re=1
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -421,4 +421,8 @@ let g:SuperTabDefaultCompletionType = "context"
 " insert mode
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"vim-go settings
+" format with goimports instead of gofmt
+let g:go_fmt_command = "goimports"
 "========== END Plugin Settings =========="

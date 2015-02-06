@@ -69,3 +69,7 @@ rbenv() {
     command rbenv "$command" "$@";;
   esac
 }
+
+if [ -f ~/.bash/bashrc.local ]; then
+  source ~/.bash/bashrc.local
+fi
