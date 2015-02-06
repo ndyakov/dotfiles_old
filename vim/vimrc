@@ -268,7 +268,7 @@ nnoremap gb :call Buftabs_show(-1)<CR>
 " =========== Color theme settings =============
 
 colorscheme lucius
-LuciusDarkHighContrast
+LuciusDark
 "hi Normal ctermbg=NONE
 
 " rm1234
