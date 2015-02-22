@@ -429,4 +429,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "vim-go settings
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
+nnoremap <leader>gl :GoLint<CR>
+inoremap <leader>gl <ESC>:GoLint<CR>
+vnoremap <leader>gl <ESC>:GoLint<CR>
 "========== END Plugin Settings =========="
