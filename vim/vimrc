@@ -135,6 +135,10 @@ inoremap <C-Space> <C-y><ESC>
 inoremap <C-@> <C-y><ESC>
 inoremap <Nul> <C-y><ESC>
 
+" Splits like in tmux but without the Shift
+nnoremap <leader>\ :split<CR>
+nnoremap <leader>5 :vsplit<CR>
+
 " Ctrl+S to save
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
