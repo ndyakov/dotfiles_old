@@ -43,14 +43,12 @@ alias nap="suspend"
 
 # fuck this caps lock
 alias ftcl='setxkbmap -option caps:swapescape'
+
+# lock the screen
+alias lock='xscreensaver-command -lock 1>/dev/null'
+
 # be nice tmux, be nice.
 alias tmux="tmux -2"
-
-# ---- Learning paths ---- #
-alias go-learn="cd /home/ndyakov/code/go/go-learn && l"
-alias js-learn="cd /home/ndyakov/code/javascript/js-learn && l"
-alias py-learn="cd /home/ndyakov/code/python/py-learn && l"
-alias py="python3 "
 
 # ---- Git ---- #
 alias gst="git status -v"
@@ -73,3 +71,4 @@ alias ma="tmux attach -t"
 alias term='xfce4-terminal'
 alias be='bundle exec'
 alias zs='be zeus start'
+
