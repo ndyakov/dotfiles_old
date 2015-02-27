@@ -114,7 +114,7 @@ set -g status-utf8 on
 set -g status-left-length 256
 set -g status-right-length 256
 set -g status-left ' π '
-set -g status-right '[#S:#I.#P] [%I:%M %p]'
+set -g status-right '[#S:#I.#P]'
 
 # Message
 # set message colors
