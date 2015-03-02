@@ -1,5 +1,5 @@
 [Configuration]
-FontName=Liberation Mono 12
+FontName=Liberation Mono 11
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=FALSE
@@ -30,10 +30,15 @@ ScrollingLines=5000
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ShortcutsNoMenukey=TRUE
 ShortcutsNoMnemonics=TRUE
-DropdownPosition=45
 DropdownWidth=100
-DropdownHeight=70
+DropdownHeight=100
 DropdownKeepOpenDefault=TRUE
-DropdownKeepAbove=FALSE
+CommandLoginShell=TRUE
+ScrollingSingleLine=FALSE
+ScrollingOnKeystroke=FALSE
+BackgroundDarkness=0,980000
 DropdownAlwaysShowTabs=FALSE
+DropdownStatusIcon=FALSE
+DropdownMoveToActive=FALSE
+BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 
