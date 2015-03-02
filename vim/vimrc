@@ -2,7 +2,7 @@
 "
 filetype off
 
-"set re=1
+set re=1
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -273,7 +273,6 @@ nnoremap gb :call Buftabs_show(-1)<CR>
 
 colorscheme lucius
 LuciusDark
-"hi Normal ctermbg=NONE
 
 " rm1234
 match TabLineFill /rm\d\+/
@@ -437,3 +436,5 @@ nnoremap <leader>gl :GoLint<CR>
 inoremap <leader>gl <ESC>:GoLint<CR>
 vnoremap <leader>gl <ESC>:GoLint<CR>
 "========== END Plugin Settings =========="
+
+hi Normal ctermbg=NONE
