@@ -4,7 +4,6 @@ case $- in
 esac
 
 stty stop ^X
-command -v fortune > /dev/null 2>&1 && fortune bg
 #--- Colors ---
 
 # Reset
