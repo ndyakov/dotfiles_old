@@ -2,7 +2,8 @@
 "
 filetype off
 
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
+let g:ruby_path = system('/home/ndyakov/.rbenv/shims')
+
 set re=1
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -93,8 +94,11 @@ set laststatus=2
 
 " Now set it up to change the status line based on mode
 if version >= 700
-  au InsertEnter * hi StatusLine term=reverse ctermfg=7 ctermbg=65 guibg=#005f5f guifg=White gui=underline
-  au InsertLeave * hi StatusLine term=reverse ctermfg=7 ctermbg=24 gui=bold,reverse
+  augroup StatusLineGroup
+    au!
+    au InsertEnter * hi StatusLine term=reverse ctermfg=7 ctermbg=65 guibg=#005f5f guifg=White gui=underline
+    au InsertLeave * hi StatusLine term=reverse ctermfg=7 ctermbg=24 gui=bold,reverse
+  augroup END
 endif
 
 " Make Sure that Vim returns to the same line when we reopen a file"
@@ -108,7 +112,10 @@ augroup END
 
 " Working with split screen nicely
 " Resize Split When the window is resized"
-au VimResized * :wincmd =
+augroup ResizeGroup
+  au!
+  au VimResized * :wincmd =
+augroup END
 
 " =========== END Basic Vim Settings ===========
 
@@ -278,11 +285,6 @@ nnoremap gb :call Buftabs_show(-1)<CR>
 colorscheme lucius
 LuciusDark
 
-" rm1234
-match TabLineFill /rm\d\+/
-
-" Highlight trailing whitespaces
-match Error /\s\+$/
 " =========== END Color theme settings =========
 
 " =========== Gvim Settings =============
@@ -322,11 +324,12 @@ endfunc
 
 " ========== Plugins Settings =========="
 " vim mode-switch lag fix (related to autoclose)
+
 if ! has("gui_running")
     set ttimeoutlen=10
 
     augroup FastEscape
-        autocmd!
+        au!
         au InsertEnter * set timeoutlen=0
         au InsertLeave * set timeoutlen=1000
     augroup END
@@ -415,23 +418,21 @@ let g:indent_guides_indent_levels=6
 let g:golden_ratio_exclude_nonmodifiable = 1
 let g:golden_ratio_autocommand = 0
 
-" Buftabs settings
-"let g:buftabs_in_statusline=0
-let g:buftabs_only_basename=1
-let g:buftabs_separator = " "
-"let g:buftabs_marker_start = "["
-"let g:buftabs_marker_end = "]"
-let g:buftabs_marker_modified = "*"
-
 " SuperTab setting
 " uses omni if enabled
+"
 let g:SuperTabDefaultCompletionType = "context"
+
 " Omnicompletion close scratch window
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+augroup OmniCompletionClose
+  autocmd!
+  autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+  autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+augroup END
 
 "vim-go settings
 " format with goimports instead of gofmt
