@@ -2,7 +2,9 @@
 "
 filetype off
 
+let g:ruby_path = system('echo $HOME/.rbenv/shims')
 set re=1
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -49,9 +51,11 @@ set wildmenu
 set wildmode=list:longest
 set novisualbell
 set timeout ttimeoutlen=50
+set synmaxcol=120
 
 set cursorline
 set ttyfast
+set ttyscroll=3
 set ruler
 set backspace=indent,eol,start
 
