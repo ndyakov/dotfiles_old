@@ -51,8 +51,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set novisualbell
-set timeout ttimeoutlen=50
-set synmaxcol=120
+set timeout ttimeoutlen=50 timeoutlen=500
 
 set cursorline
 set ttyfast
@@ -67,7 +66,7 @@ set norelativenumber
 " Set undofile
 set shell=/bin/bash
 set lazyredraw
-set matchtime=3
+set matchtime=1
 
 " Set tag file
 set tags=./tags,tags
