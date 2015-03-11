@@ -32,20 +32,11 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
 # Env Variables
 export GOPATH=$HOME/code/go
 export GOROOT=$HOME/src/go
 export PATH=$PATH:$HOME/bin:$GOPATH/bin:$GOROOT/bin
-
-# Physics bins
-#export PATH=$PATH:/phys/Geant4/bin:/phys/ROOT/bin:/phys/CLHEP/bin:/phys/recpack
-
-# Geant4
-#source /phys/Geant4/bin/geant4.sh
-#alias geant4.sh='/phys/Geant4/bin/geant4.sh'
-# ROOT
-#source /phys/ROOT/bin/thisroot.sh
-#alias thisroot='/phys/ROOT/bin/thisroot.sh'
 
 # --- Ruby stuff ---
 export PATH=$PATH:$HOME/src/ruby/rbenv/bin
