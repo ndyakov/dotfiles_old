@@ -12,6 +12,20 @@ call pathogen#helptags()
 filetype plugin indent on
 " ========== END Load Pathogen =============="
 
+" ========== Functions ==================
+
+func! ClearTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+
+func! ShowTrailingWS()
+  match Error /\s\+$/
+endfunc
+
+" ========== END Functions ==============
+"
 " ========== Vim Basic Settings ============="
 " Make vim incompatbile to vi.
 set nocompatible
@@ -251,8 +265,12 @@ vnoremap ; :
 
 " Adding More Shorcuts keys using leader key.
 " Leader Key provide separate namespace for specific commands.
+
+",w Command to show white space from a file.
+nnoremap <leader>w :call ShowTrailingWS()<CR>
+
 ",W Command to remove white space from a file.
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>W :call ClearTrailingWS()<CR>
 
 " ,ft Fold tag, helpful for HTML editing.
 nnoremap <leader>ft vatzf
@@ -268,9 +286,6 @@ nnoremap <leader>v V`]
 
 " ,ev Shortcut to edit .vimrc file on the fly on a vertical window.
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
-
-" ,;  For Qicker Escaping between normal and visual mode.
-vnoremap <leader>; <ESC>
 
 nnoremap g; g;zz
 
@@ -308,19 +323,6 @@ autocmd bufwritepost .vimrc source ~/.vimrc
 
 " ========== END Gvim Settings ==========
 
-" ========== Functions ==================
-
-func! ClearTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-
-func! ShowTrailingWS()
-  match Error /\s\+$/
-endfunc
-
-" ========== END Functions ==============
 
 " ========== Plugins Settings =========="
 " vim mode-switch lag fix (related to autoclose)
