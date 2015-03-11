@@ -51,7 +51,7 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set novisualbell
-set timeout ttimeoutlen=50 timeoutlen=500
+set timeout ttimeoutlen=50 timeoutlen=1000
 
 set cursorline
 set ttyfast
