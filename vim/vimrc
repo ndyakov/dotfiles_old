@@ -283,6 +283,7 @@ nnoremap gb :call Buftabs_show(-1)<CR>
 
 colorscheme lucius
 LuciusDark
+highlight Comment ctermfg=249 guifg=#b2b2b2
 
 " =========== END Color theme settings =========
 
