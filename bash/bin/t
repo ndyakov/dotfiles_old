@@ -12,8 +12,7 @@ function fontsize {
 
 function change_fontsize {
   NEWSIZE=$1
-  SIZE=`fontsize`
-  SUBSTITUTION='s/FontName\(.*\)'$SIZE'/FontName\1'$NEWSIZE'/g'
+  SUBSTITUTION='s/FontName\(.*\) [[:digit:]]\+/FontName\1 '$NEWSIZE'/g'
   sed -i "$SUBSTITUTION" ~/.config/xfce4/terminal/terminalrc
 }
 
