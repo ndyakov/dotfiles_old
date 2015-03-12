@@ -450,6 +450,9 @@ let g:go_fmt_command = "goimports"
 nnoremap <leader>gl :GoLint<CR>
 inoremap <leader>gl <ESC>:GoLint<CR>
 vnoremap <leader>gl <ESC>:GoLint<CR>
+nnoremap <leader>gv :GoVet<CR>
+inoremap <leader>gv <ESC>:GoVet<CR>
+vnoremap <leader>gv <ESC>:GoVet<CR>
 "========== END Plugin Settings =========="
 
 hi Normal ctermbg=NONE
