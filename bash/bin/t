@@ -16,6 +16,32 @@ function change_fontsize {
   sed -i "$SUBSTITUTION" ~/.config/xfce4/terminal/terminalrc
 }
 
+function background_darkness_percentage {
+  if [ $1 ]; then
+    change_bg $1
+    exit
+  fi
+  echo `grep 'BackgroundDarkness' ~/.config/xfce4/terminal/terminalrc | rev | cut -d '.' -f 1 | rev`
+}
+
+function change_bg {
+  NEWPERCENTAGE=$1
+  if [ $NEWPERCENTAGE -gt 99 ]; then
+    NEWPERCENTAGE=99
+  fi
+  SUBSTITUTION='s/BackgroundDarkness=0.[[:digit:]]\+/BackgroundDarkness=0.'$NEWPERCENTAGE'/g'
+  sed -i "$SUBSTITUTION" ~/.config/xfce4/terminal/terminalrc
+}
+
+function bg {
+  CURRENT=`background_darkness_percentage`
+  if [ $1 ]; then
+    change_bg $((CURRENT + $1))
+    exit
+  fi
+  echo $CURRENT
+}
+
 function zoom {
   if [ "$1" == "restore" ] || [ "$1" == "r" ]; then
     $1
