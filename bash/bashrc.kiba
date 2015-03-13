@@ -3,7 +3,7 @@ if [ -f ~/.bash/bashrc.common ]; then
 fi
 
 function prompt_left() {
-    echo -e "${debian_chroot:+($debian_chroot)}\$(if [[ \$? == 0 ]]; then echo \"\[$BGreen\]\342\234\223\"; else echo \"\[$BRed\]\342\234\227\"; fi) \[$BWhite\]\u\[$BWhite\] : \[$BBlue\]\w \[$BPurple\]$(__git_ps1 " (%s)")"
+    echo -e "${debian_chroot:+($debian_chroot)}\$(if [[ \$? == 0 ]]; then echo \"\[$BGreen\]\342\234\223\"; else echo \"\[$BRed\]\342\234\227\"; fi) \[$BBlue\]\w \[$BPurple\]$(__git_ps1 " (%s)")"
 }
 
 function prompt_right() {
@@ -12,7 +12,7 @@ function prompt_right() {
 
 function prompt() {
     compensate=1
-    PS1=$(printf "%s\n\[$BBlue\]➜ \[$Color_Off\]" "$(prompt_left)")
+    PS1=$(printf "%s\n\[$White\]➜ \[$Color_Off\]" "$(prompt_left)")
     PS1="$PS1"
 }
 
