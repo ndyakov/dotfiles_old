@@ -63,7 +63,10 @@ function link_pack() {
 
     if [ ! -d "$HOME/.$pack" ]
     then
-        ln -sv "$DOTFILES/$pack/" "$HOME/.$pack"
+        if [ -d "$DOTFILES/$pack/" ]
+        then
+          ln -sv "$DOTFILES/$pack/" "$HOME/.$pack"
+        fi
     else
         $p "Won't link $DOTFILES/$pack/ to $HOME/.$pack because the directory exists."
     fi
@@ -171,6 +174,12 @@ function prep_rbenv() {
     LINK_FILES=()
     LINK_FOLDERS=()
     git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+}
+
+function prep_tmuxinator() {
+  LINK_FILES=()
+  LINK_FOLDERS=()
+  gem install tmuxinator
 }
 
 #----------------------------------------------#
