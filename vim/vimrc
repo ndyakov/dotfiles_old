@@ -25,7 +25,7 @@ func! ShowTrailingWS()
 endfunc
 
 " ========== END Functions ==============
-"
+
 " ========== Vim Basic Settings ============="
 " Make vim incompatbile to vi.
 set nocompatible
@@ -59,6 +59,7 @@ set directory=~/.vim/backup
 set encoding=utf-8
 set scrolloff=10
 set autoindent
+set autoread
 set showmode
 set showcmd
 set hidden
