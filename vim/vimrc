@@ -304,14 +304,15 @@ highlight Normal ctermbg=NONE
 
 " Removing scrollbars
 if has("gui_running")
-    set guifont=Liberation\ Mono\ 12
+    set guifont=Liberation\ Mono\ 11
     set guitablabel=%-0.12t%M
     set guioptions-=T
     set guioptions-=r
     set guioptions-=L
-    set guioptions+=a
-    set guioptions+=i
+    set guioptions-=a
+    set guioptions-=i
     set guioptions-=m
+    set guioptions-=M
 else
     set t_Co=256
 endif
