@@ -25,7 +25,7 @@ func! ShowTrailingWS()
 endfunc
 
 " ========== END Functions ==============
-"
+
 " ========== Vim Basic Settings ============="
 " Make vim incompatbile to vi.
 set nocompatible
@@ -59,13 +59,14 @@ set directory=~/.vim/backup
 set encoding=utf-8
 set scrolloff=10
 set autoindent
+set autoread
 set showmode
 set showcmd
 set hidden
 set wildmenu
 set wildmode=list:longest
 set novisualbell
-set timeout ttimeoutlen=50 timeoutlen=1000
+set timeout ttimeoutlen=100 timeoutlen=1000
 
 set cursorline
 set ttyfast
@@ -87,6 +88,7 @@ set tags=./tags,tags
 let g:easytags_dynamic_files=1
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
+
 " Set title to window
 set notitle
 
@@ -98,8 +100,6 @@ set notitle
 if has("statusline")
    set statusline=%f\ %=\ %h%m%r%k\ %y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
 endif
-
-
 
 " Change status color on different modes
 " First, enable status line always
@@ -172,6 +172,9 @@ vnoremap <C-s> <ESC>:w<CR>
 nmap <leader><leader> <C-^>
 vmap <leader><leader> <C-^>
 
+" relative numbers key bindings."
+nmap <leader>l <ESC>:set relativenumber!<CR>
+
 " Navigation between windows
 nnoremap <silent> <A-k> :wincmd k<CR>
 nnoremap <silent> <A-j> :wincmd j<CR>
@@ -214,9 +217,11 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 vnoremap <Down> <Nop>
+
 "open new tab
 nnoremap gtt :tabnew %<CR>
 vnoremap gtt :tabnew %<CR>
+
 " Toggle highlight search
 let hlstate=0
 nnoremap <Leader>n :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<CR>:echo "toggled visibility for hlsearch"<CR>
@@ -247,14 +252,6 @@ nnoremap ]t :tabnext<cr>
 
 vnoremap [t :tabprevious<cr>
 vnoremap ]t :tabnext<cr>
-
-" Zoom in and out (change font size)
-" This one uses the script t located in ~/bin
-nnoremap <silent> [f :r !t zo<CR>
-nnoremap <silent> ]f :r !t zi<CR>
-
-vnoremap <silent> [f :r !t zo<CR>
-vnoremap <silent> ]f :r !t zi<CR>
 
 " Map ; to : in normal and visual mode.
 nnoremap ; :
@@ -299,6 +296,7 @@ nnoremap gb :call Buftabs_show(-1)<CR>
 colorscheme lucius
 LuciusDark
 highlight Comment ctermfg=249 guifg=#b2b2b2
+highlight Normal ctermbg=NONE
 
 " =========== END Color theme settings =========
 
@@ -306,14 +304,15 @@ highlight Comment ctermfg=249 guifg=#b2b2b2
 
 " Removing scrollbars
 if has("gui_running")
-    set guifont=Liberation\ Mono\ 12
+    set guifont=Liberation\ Mono\ 11
     set guitablabel=%-0.12t%M
     set guioptions-=T
     set guioptions-=r
     set guioptions-=L
-    set guioptions+=a
-    set guioptions+=i
+    set guioptions-=a
+    set guioptions-=i
     set guioptions-=m
+    set guioptions-=M
 else
     set t_Co=256
 endif
@@ -341,6 +340,7 @@ endif
 " Search the word under the cursor
 nnoremap <leader>f mM:Ag! "<C-R><C-W>"<CR>:cw<CR>
 vnoremap <leader>f mM"hy:Ag! <C-R>h<CR>:cw<CR>
+
 " Mapping to Undotree
 nmap <leader>u <ESC>:UndotreeToggle<CR>
 imap <leader>u <ESC>:UndotreeToggle<CR>
@@ -348,40 +348,6 @@ imap <leader>u <ESC>:UndotreeToggle<CR>
 " Mapping to NERDTree
 nnoremap <C-n> :NERDTreeToggle %<cr>
 let NERDTreeIgnore=['.sw?','\~$', '\.pyc$']
-
-" Tagbar key bindings."
-nmap <leader>l <ESC>:TagbarToggle<CR>
-imap <leader>l <ESC>:TagbarToggle<CR>i
-
-" Tagbar support for go."
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-
 
 " CtrlP key binding.
 nnoremap <C-p> :CtrlPBufTagAll<CR>
@@ -399,7 +365,6 @@ vnoremap <C-o> <ESC>:CtrlP<CR>
 nnoremap <C-t> :CtrlPTag<CR>
 inoremap <C-t> <ESC>:CtrlPTag<CR>
 vnoremap <C-t> <ESC>:CtrlPTag<CR>
-
 
 " Symbol for lines which have been added, default: +
 let g:git_diff_added_symbol='⇒'
@@ -430,29 +395,22 @@ let g:buftabs_marker_modified = "*"
 
 " SuperTab setting
 " uses omni if enabled
-"
 let g:SuperTabDefaultCompletionType = "context"
 
 " Omnicompletion close scratch window
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
 " insert mode
-
 augroup OmniCompletionClose
   autocmd!
   autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
   autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 augroup END
 
-"vim-go settings
-" format with goimports instead of gofmt
-let g:go_fmt_command = "goimports"
-nnoremap <leader>gl :GoLint<CR>
-inoremap <leader>gl <ESC>:GoLint<CR>
-vnoremap <leader>gl <ESC>:GoLint<CR>
-nnoremap <leader>gv :GoVet<CR>
-inoremap <leader>gv <ESC>:GoVet<CR>
-vnoremap <leader>gv <ESC>:GoVet<CR>
-"========== END Plugin Settings =========="
+" Lusty settings
+nnoremap <leader>b :LustyBufferExplorer<CR>
+vnoremap <leader>b :LustyBufferExplorer<CR>
+nnoremap <leader>/ :LustyBufferGrep<CR>
+vnoremap <leader>/ :LustyBufferGrep<CR>
 
-hi Normal ctermbg=NONE
+"========== END Plugin Settings =========="
