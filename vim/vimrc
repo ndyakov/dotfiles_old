@@ -148,6 +148,9 @@ while c <= 'z'
   let c = nr2char(1+char2nr(c))
 endw
 
+" Toggle spell
+nnoremap <leader>s :set spell!<CR>
+
 " Make tab in v mode ident code
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
