@@ -98,7 +98,7 @@ set notitle
 "set statusline=%<%f\ %y\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ %L
 "set statusline=%-50{buftabs#statusline()}%=\ %h%m%r%k\ %y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
 if has("statusline")
-   set statusline=%f\ %=\ %h%m%r%k\ %y\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
+   set statusline=%f\ %=\ %h%m%r%k\ %y\ %{fugitive#statusline()}\ %{\"[\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"]\ \"}\ %-8.(%l,%c%V%)\ %P\ %L
 endif
 
 " Change status color on different modes
