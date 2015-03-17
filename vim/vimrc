@@ -15,9 +15,9 @@ filetype plugin indent on
 " ========== Functions ==================
 
 func! ClearTrailingWS()
-  exe "normal mz"
+  normal! mz
   %s/\s\+$//ge
-  exe "normal `z"
+  normal! `z
 endfunc
 
 func! ShowTrailingWS()
@@ -149,7 +149,7 @@ while c <= 'z'
 endw
 
 " Toggle spell
-nnoremap <leader>s :set spell!<CR>
+nnoremap <silent> <leader>s :set spell!<CR>
 
 " Make tab in v mode ident code
 vnoremap <tab> >gv
@@ -176,7 +176,7 @@ nmap <leader><leader> <C-^>
 vmap <leader><leader> <C-^>
 
 " relative numbers key bindings."
-nmap <leader>l <ESC>:set relativenumber!<CR>
+nmap <silent> <leader>l <ESC>:set relativenumber!<CR>
 
 " Navigation between windows
 nnoremap <silent> <A-k> :wincmd k<CR>
