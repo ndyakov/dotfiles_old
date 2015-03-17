@@ -97,4 +97,8 @@ function = {
   restore
 }
 
+function font {
+  echo `grep 'FontName' ~/.config/xfce4/terminal/terminalrc | rev | cut -d "=" -f 1 | rev `
+}
+
 $1 $2
