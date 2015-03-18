@@ -54,7 +54,7 @@ function link_pack() {
     then
         return 1
     fi
-    local $pack=$1
+    local pack=$1
 
     if [ -d "$HOME/.$pack" ]
     then
@@ -78,7 +78,7 @@ function link_files() {
         return 1
     fi
 
-    local $pack=$1
+    local pack=$1
 
     for file in "${!LINK_FILES[@]}"
     do
@@ -105,7 +105,7 @@ function link_folders() {
         return 1
     fi
 
-    local $pack=$1
+    local pack=$1
 
     for folder in "${!LINK_FOLDERS[@]}"
     do
