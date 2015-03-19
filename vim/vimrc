@@ -396,10 +396,6 @@ let g:buftabs_separator = "|"
 "let g:buftabs_marker_end = "]"
 let g:buftabs_marker_modified = "*"
 
-" SuperTab setting
-" uses omni if enabled
-let g:SuperTabDefaultCompletionType = "context"
-
 " Omnicompletion close scratch window
 " If you prefer the Omni-Completion tip window to close when a selection is
 " made, these lines close it on movement in insert mode or when leaving
@@ -415,5 +411,4 @@ nnoremap <leader>b :LustyBufferExplorer<CR>
 vnoremap <leader>b :LustyBufferExplorer<CR>
 nnoremap <leader>/ :LustyBufferGrep<CR>
 vnoremap <leader>/ :LustyBufferGrep<CR>
-
 "========== END Plugin Settings =========="

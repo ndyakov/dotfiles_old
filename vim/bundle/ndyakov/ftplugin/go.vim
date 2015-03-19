@@ -1,6 +1,11 @@
 "vim-go settings
 " format with goimports instead of gofmt
 let g:go_fmt_comand = "goimports"
+
+" SuperTab setting
+" uses omni if enabled
+let g:SuperTabDefaultCompletionType = "context"
+
 nnoremap <leader>gl :GoLint<CR>
 inoremap <leader>gl <ESC>:GoLint<CR>
 vnoremap <leader>gl <ESC>:GoLint<CR>
