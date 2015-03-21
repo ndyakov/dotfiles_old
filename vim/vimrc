@@ -412,3 +412,4 @@ vnoremap <leader>b :LustyBufferExplorer<CR>
 nnoremap <leader>/ :LustyBufferGrep<CR>
 vnoremap <leader>/ :LustyBufferGrep<CR>
 "========== END Plugin Settings =========="
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
