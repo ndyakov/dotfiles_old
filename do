@@ -155,11 +155,6 @@ function prep_htop() {
     LINK_FOLDERS=()
 }
 
-function prep_ncmpcpp() {
-    LINK_FILES=(["config.$ENV"]=".ncmpcpp/config")
-    LINK_FOLDERS=()
-}
-
 function prep_xfce4() {
     LINK_FILES=(["xfce4-keyboard-shortcuts.xml"]=".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml")
     LINK_FOLDERS=(["terminal"]=".config/xfce4/terminal")
