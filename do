@@ -3,7 +3,7 @@
 
 # Get the dotfiles directory
 DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PACKS=('base-terminal' 'extra-env' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'ncmpcpp' 'xfce4' 'gitconf' 'tmuxinator' 'rbenv')
+PACKS=('base-terminal' 'extra-env' 'bash' 'vim' 'tmux' 'irssi' 'htop' 'xfce4' 'gitconf' 'tmuxinator' 'rbenv')
 ENVS=('kiba' 'moon')
 declare -A LINK_FOLDERS
 declare -A LINK_FILES
