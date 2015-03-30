@@ -1,7 +1,3 @@
-"vim-go settings
-" format with goimports instead of gofmt
-let g:go_fmt_comand = "goimports"
-
 " SuperTab setting
 " uses omni if enabled
 let g:SuperTabDefaultCompletionType = "context"
@@ -41,3 +37,8 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+"vim-go settings
+" format with goimports instead of gofmt
+
+let g:go_fmt_command = "goimports"
