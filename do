@@ -169,6 +169,7 @@ function prep_rbenv() {
     LINK_FILES=()
     LINK_FOLDERS=()
     git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+    git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 }
 
 function prep_tmuxinator() {
