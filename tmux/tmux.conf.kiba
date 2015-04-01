@@ -121,8 +121,8 @@ set -g status-right '[#S:#I.#P]'
 
 # Message
 # set message colors
-set -g message-bg $GREEN
-set -g message-fg $FOREGROUND
+set -g message-bg $BACKGROUND
+set -g message-fg $HIGHLIGHT
 set -g message-attr bright
 
 # Copy
