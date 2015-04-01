@@ -1,6 +1,9 @@
 # Colors
 BACKGROUND=black
 FOREGROUND=white
+BLUE=colour24
+GREEN=colour65
+HIGHLIGHT="#3fcfff"
 
 # set longer escape time
 set -s escape-time 50
@@ -40,13 +43,13 @@ set -g set-titles-string '#(whoami)@#H - (#S:#W.#P)'
 
 # Panes
 set -g pane-active-border-bg default
-set -g pane-active-border-fg $FOREGROUND
+set -g pane-active-border-fg $HIGHLIGHT
 set -g pane-border-fg $BACKGROUND
 
 # pane numbers display time and color
 set -g display-panes-time 1000
 set -g display-panes-colour $FOREGROUND
-set -g display-panes-active-colour $BACKGROUND
+set -g display-panes-active-colour $HIGHLIGHT
 
 # History
 set -g history-limit 10000
@@ -57,8 +60,8 @@ set -g clock-mode-style 24
 
 # Mode
 set-option -g mode-keys vi
-set-option -g mode-bg $BACKGROUND
-set-option -g mode-fg $FOREGROUND
+set-option -g mode-bg $HIGHLIGHT
+set-option -g mode-fg $BACKGROUND
 
 # Windows
 
@@ -68,7 +71,7 @@ setw -g window-status-bg $BACKGROUND
 setw -g window-status-fg $FOREGROUND
 setw -g window-status-current-attr reverse
 setw -g window-status-current-bg $BACKGROUND
-setw -g window-status-current-fg $FOREGROUND
+setw -g window-status-current-fg $HIGHLIGHT
 #set-window-option -g window-status-alert-bg $BACKGROUND
 #set-window-option -g window-status-alert-fg $FOREGROUND
 #set-window-option -g window-status-alert-attr bold
@@ -118,7 +121,7 @@ set -g status-right '[#S:#I.#P]'
 
 # Message
 # set message colors
-set -g message-bg $BACKGROUND
+set -g message-bg $GREEN
 set -g message-fg $FOREGROUND
 set -g message-attr bright
 
