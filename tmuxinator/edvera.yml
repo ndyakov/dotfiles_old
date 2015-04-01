@@ -22,7 +22,7 @@ windows:
       layout: e902,186x57,0,0[186x13,0,0{93x13,0,0,0,92x13,94,0,8},186x43,0,14,12]
       panes:
         - zs
-        - tmux clock-mode
+        -
         - ls
   - vim: vim .
   - git: git fetch origin && gst
