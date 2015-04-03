@@ -4,6 +4,7 @@ FOREGROUND=white
 BLUE=colour24
 GREEN=colour65
 HIGHLIGHT="#3fcfff"
+LHIGHLIGHT="#3fefef"
 
 # set longer escape time
 set -s escape-time 50
@@ -122,7 +123,7 @@ set -g status-right '[#S:#I.#P]'
 # Message
 # set message colors
 set -g message-bg $BACKGROUND
-set -g message-fg $HIGHLIGHT
+set -g message-fg $LHIGHLIGHT
 set -g message-attr bright
 
 # Copy
