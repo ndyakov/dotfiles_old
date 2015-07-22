@@ -36,9 +36,9 @@ DropdownKeepOpenDefault=TRUE
 CommandLoginShell=TRUE
 ScrollingSingleLine=FALSE
 ScrollingOnKeystroke=FALSE
-BackgroundDarkness=0.97
 DropdownAlwaysShowTabs=FALSE
 DropdownStatusIcon=FALSE
 DropdownMoveToActive=FALSE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
+BackgroundDarkness=1.000000
 

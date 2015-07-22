@@ -71,4 +71,3 @@ alias ma="tmux attach -t"
 alias term='xfce4-terminal'
 alias be='bundle exec'
 alias zs='be zeus start'
-
