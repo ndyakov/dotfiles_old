@@ -1,10 +1,9 @@
 " ========== Load Pathogen ================="
 "
 filetype off
-
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
-
-set re=1
+scriptencoding utf-8
+set encoding=utf-8
+syntax on
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -40,7 +39,7 @@ set expandtab
 
 " Show whitespaces
 set list
-set listchars=tab:▸\ ,eol:¬,trail:⬦,nbsp:⬦
+set listchars=tab:▸\ ,eol:¬,trail:·,precedes:«,extends:»
 
 " Highlight searches
 set hlsearch
@@ -179,11 +178,11 @@ vmap <leader><leader> <C-^>
 nmap <silent> <leader>l <ESC>:set relativenumber!<CR>
 
 " Navigation between windows
-nnoremap <silent> <A-k> :wincmd k<CR>
-nnoremap <silent> <A-j> :wincmd j<CR>
-nnoremap <silent> <A-h> :wincmd h<CR>
-nnoremap <silent> <A-l> :wincmd l<CR>
-nnoremap <silent> <A-q> :close<CR>
+nnoremap <silent> ˚ :wincmd k<CR>
+nnoremap <silent> ∆ :wincmd j<CR>
+nnoremap <silent> ˙ :wincmd h<CR>
+nnoremap <silent> ¬ :wincmd l<CR>
+nnoremap <silent> œ :close<CR>
 
 " Navigation between buffers
 nnoremap <silent> <C-l> :bnext<CR>

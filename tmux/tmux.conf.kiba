@@ -10,7 +10,15 @@ LHIGHLIGHT="#3fefef"
 set -s escape-time 50
 
 # Change to Screen's ctrl-a escape sequence
-source /usr/share/doc/tmux/examples/screen-keys.conf
+#source /usr/share/doc/tmux/examples/screen-keys.conf
+#using C-a as prefix
+unbind C-b
+set-option -g prefix C-a
+bind C-a send-prefix
+
+unbind /
+bind / last-window
+
 
 # Bindings
 
